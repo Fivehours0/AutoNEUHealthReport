@@ -40,17 +40,17 @@ if __name__ == '__main__':
     printLog("开始注册驱动")
 
     if platform.system() == 'Linux':
-        engine = current_dir + '/chromedriver'
+        # engine = current_dir + '/chromedriver'
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-extensions')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--no-sandbox')  # 在centOS 需要这样设置
         # printLog('chromedriver path: /user/bin/chromedriver')
-        # driver = webdriver.Chrome('/user/bin/chromedriver', options=chrome_options)
+        driver = webdriver.Chrome(options=chrome_options)
     else:
         engine = current_dir + r'\chromedriver.exe'
-    printLog('chromedriver path: ' + engine)
-    driver = webdriver.Chrome(engine, options=chrome_options)
+        printLog('chromedriver path: ' + engine)
+        driver = webdriver.Chrome(engine, options=chrome_options)
 
 
     # 登录
