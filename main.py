@@ -86,32 +86,6 @@ if __name__ == '__main__':
     print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), ' 文本为:  ', text)
     time.sleep(1.5)
 
-    # 填报温度
-    driver.get('https://e-report.neu.edu.cn/inspection/items/1/records/create')
-    driver.find_element(by=By.XPATH, value='//*[@id="app"]/form/div[5]/input').click()
-    time.sleep(1.5)
-    printLog("晨检完成")
-    driver.get('https://e-report.neu.edu.cn/inspection/items/2/records/create')
-    driver.find_element(by=By.XPATH, value='//*[@id="app"]/form/div[5]/input').click()
-    time.sleep(1.5)
-    printLog("中检完成")
-
-    driver.get('https://e-report.neu.edu.cn/inspection/items/3/records/create')
-    driver.find_element(by=By.XPATH, value='//*[@id="app"]/form/div[5]/input').click()
-    time.sleep(1.5)
-    printLog("晚检完成")
-
-
-    # 检查填表是否成功
-    driver.get('https://e-report.neu.edu.cn/inspection/items')
-    printLog("检查填报温度")
-    text = driver.find_element(by=By.XPATH, value='//*[@id="app"]/div[2]/div[1]/div/div/p').text
-    print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), ' 文本为:  ', text)
-    text = driver.find_element(by=By.XPATH, value='//*[@id="app"]/div[2]/div[2]/div/div/p').text
-    print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), ' 文本为:  ', text)
-    text = driver.find_element(by=By.XPATH, value='//*[@id="app"]/div[2]/div[3]/div/div/p').text
-    print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), ' 文本为:  ', text)
-
     time.sleep(1.5)
     driver.quit()  # 记得关闭浏览器否则服务器内存会被占满
     printLog("chrome关闭成功")
